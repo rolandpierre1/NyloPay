@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "844198651339",
+    "project_id": "nylopay-fb5d8",
+    "storage_bucket": "nylopay-fb5d8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844198651339:android:14e33a31a06c534095c24e",
+        "android_client_info": {
+          "package_name": "com.nylopay.agent.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "844198651339-hf6t7bok4fv096e807dchgi60o6gcpt5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRzlDI7TXt5CfEbS9o38nH4fE6CxVFqX8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "844198651339-hf6t7bok4fv096e807dchgi60o6gcpt5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "844198651339-6p64vpet6cjo970jk3tk0hdesuubb338.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nylopay.mobile.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844198651339:android:a2fa9b2ca8fc0b4495c24e",
+        "android_client_info": {
+          "package_name": "com.nylopay.mobile.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "844198651339-0kcfbbog5qoolag6qrnc9lmq7himr8b2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nylopay.mobile.app",
+            "certificate_hash": "b88ba158edf5321da35e602f1d4696562061dcdb"
+          }
+        },
+        {
+          "client_id": "844198651339-hf6t7bok4fv096e807dchgi60o6gcpt5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRzlDI7TXt5CfEbS9o38nH4fE6CxVFqX8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "844198651339-hf6t7bok4fv096e807dchgi60o6gcpt5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "844198651339-6p64vpet6cjo970jk3tk0hdesuubb338.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nylopay.mobile.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
