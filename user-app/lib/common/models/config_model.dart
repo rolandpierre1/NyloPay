@@ -16,6 +16,7 @@ class ConfigModel {
     this.isCurrencyPositionOnLeft,
     this.cashOutChargePercent,
     this.sendMoneyChargeFlat,
+    this.sendMoneyFeeTiers,
     this.withdrawChargePercent,
     this.twoFactor,
     this.selfDelete,
@@ -53,6 +54,25 @@ class ConfigModel {
   bool? isCurrencyPositionOnLeft;
   double? cashOutChargePercent;
   double? sendMoneyChargeFlat;
+  List<Map<String, dynamic>>? sendMoneyFeeTiers;
+
+  /// Frais d'un transfert : paliers de l'admin (% + fixe), sinon l'ancien frais fixe.
+  double sendMoneyFee(double amount) {
+    final tiers = sendMoneyFeeTiers;
+    if (tiers == null || tiers.isEmpty) return sendMoneyChargeFlat ?? 0;
+    Map<String, dynamic>? best;
+    for (final t in tiers) {
+      final min = double.tryParse('${t['min_amount']}') ?? 0;
+      final max = t['max_amount'] == null ? null : double.tryParse('${t['max_amount']}');
+      if (amount >= min && (max == null || amount < max)) {
+        if (best == null || min > (double.tryParse('${best['min_amount']}') ?? 0)) best = t;
+      }
+    }
+    if (best == null) return 0;
+    final percent = double.tryParse('${best['percent']}') ?? 0;
+    final fixed = double.tryParse('${best['fixed']}') ?? 0;
+    return double.parse(((amount * percent / 100) + fixed).toStringAsFixed(2));
+  }
   double? withdrawChargePercent;
   bool? twoFactor;
   bool? selfDelete;
@@ -90,6 +110,9 @@ class ConfigModel {
     isCurrencyPositionOnLeft: json["currency_position"] == 'left',
     cashOutChargePercent: double.tryParse('${json["cashout_charge_percent"]}') ?? 0,
     sendMoneyChargeFlat: double.tryParse('${json["sendmoney_charge_flat"]}') ?? 0,
+    sendMoneyFeeTiers: (json["send_money_fee_tiers"] is List)
+        ? (json["send_money_fee_tiers"] as List).map((e) => Map<String, dynamic>.from(e as Map)).toList()
+        : [],
     withdrawChargePercent: double.tryParse('${json["withdraw_charge_percent"]}') ?? 0,
     twoFactor: int.parse(json["two_factor"].toString()) == 1 ? true: false,
     selfDelete : int.parse(json["customer_self_delete"].toString()) == 1 ? true: false,

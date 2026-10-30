@@ -354,13 +354,14 @@ class _BottomSheetWithSliderState extends State<BottomSheetWithSlider> {
   ({double cashOut, double sendMoney}) _getCharges(ConfigModel configModel, bool isFavContact) {
     final cashOutCharge = PriceConverterHelper.convertCharge(amount: double.parse(widget.amount), charge: configModel.cashOutChargePercent);
 
+    final sendMoneyFee = configModel.sendMoneyFee(double.parse(widget.amount));
     if(isFavContact) {
       return (
       cashOut: cashOutCharge -  PriceConverterHelper.convertCharge(amount: cashOutCharge, charge: configModel.favCashOutChargeDiscount),
-      sendMoney: configModel.sendMoneyChargeFlat! -  PriceConverterHelper.convertCharge(amount: configModel.sendMoneyChargeFlat, charge: configModel.favSendMoneyChargeDiscount),
+      sendMoney: sendMoneyFee -  PriceConverterHelper.convertCharge(amount: sendMoneyFee, charge: configModel.favSendMoneyChargeDiscount),
       );
     }else {
-      return (cashOut: cashOutCharge, sendMoney: configModel.sendMoneyChargeFlat ?? 0);
+      return (cashOut: cashOutCharge, sendMoney: sendMoneyFee);
     }
 
   }

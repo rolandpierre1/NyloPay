@@ -57,6 +57,6 @@ class TransactionChargeWidget extends StatelessWidget {
     return transactionType == TransactionType.withdrawRequest ? PriceConverterHelper.convertCharge(amount: inputAmount, charge: configModel?.withdrawChargePercent) :
       transactionType == TransactionType.cashOut
       ? PriceConverterHelper.convertCharge(amount: inputAmount, charge: configModel?.cashOutChargePercent)
-      : configModel?.sendMoneyChargeFlat ?? 0;
+      : configModel?.sendMoneyFee(inputAmount) ?? 0;
   }
 }

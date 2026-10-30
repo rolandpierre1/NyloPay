@@ -388,11 +388,7 @@ class _TransactionBalanceInputScreenState extends State<TransactionBalanceInputS
     final isFavApplicable = (widget.contactModel?.isFavourite ?? false) &&
         (config.favSendMoneyChargeDiscount != 0);
 
-    double charge = PriceConverterHelper.convertCharge(
-      amount: amount,
-      charge: config.sendMoneyChargeFlat,
-      isPercent: false,
-    );
+    double charge = config.sendMoneyFee(amount);
 
     if (isFavApplicable) {
       final discount = PriceConverterHelper.convertCharge(
