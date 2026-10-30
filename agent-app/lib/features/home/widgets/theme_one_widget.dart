@@ -1,3 +1,4 @@
+import 'package:six_cash/features/bank_withdraw/screens/bank_withdraw_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:six_cash/common/enums/request_type_enum.dart';
@@ -70,7 +71,7 @@ class ThemeOneWidget extends StatelessWidget {
                 text: 'withdraw_request'.tr.replaceAll(' ', '\n'),
                 isDone: true,
                 color: context.customThemeColors.withdrawRequest,
-                onTap: ()=> Get.to(()=> const BalanceInputScreen(transactionType: TransactionType.withdrawRequest)),
+                onTap: ()=> Get.to(()=> const BankWithdrawScreen()),
               )),
             ],
           ),

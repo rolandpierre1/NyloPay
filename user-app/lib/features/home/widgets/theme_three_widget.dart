@@ -1,3 +1,4 @@
+import 'package:six_cash/features/bank_withdraw/screens/bank_withdraw_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:six_cash/common/widgets/custom_ink_well_widget.dart';
@@ -91,9 +92,7 @@ class ThemeThreeWidget extends StatelessWidget {
                       image: Images.withdrawMoneyLogo3,
                       text: 'withdraw_request'.tr,
                       isDone: true,
-                      onTap: ()=> Get.to(()=> const TransactionBalanceInputScreen(
-                        transactionType: TransactionType.withdrawRequest,
-                      )),
+                      onTap: ()=> Get.to(() => const BankWithdrawScreen()),
                     ),
 
                   ]),
